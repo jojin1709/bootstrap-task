@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap Task</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      main {
+        flex: 1;
+      }
+      .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 80px 20px;
+        text-align: center;
+        color: white;
+      }
+      .hero-section h1 {
+        font-size: 72px;
+        font-weight: bold;
+        letter-spacing: 8px;
+        margin-bottom: 20px;
+      }
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 60px 20px;
+      }
+      .travel-card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .travel-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
+      .travel-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      .card-number {
+        font-size: 16px;
+        font-weight: bold;
+        color: #667eea;
+      }
+      /* Hide email validation icon */
+      input[type="email"]:valid {
+        background-image: none !important;
+      }
+      @media (max-width: 768px) {
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+        .hero-section h1 {
+          font-size: 48px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 🔹 NAVBAR - Bootstrap Component -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#home">🌍 Travel with JOJO </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#carousel">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- 🔹 Hero Section -->
+      <div class="hero-section">
+        <h1>TRAVEL EXPERIENCE</h1>
+        <p class="lead">Explore the world with me</p>
+      </div>
+
+      <!-- 🔹 CAROUSEL - Bootstrap Component -->
+      <div id="carousel" class="my-5">
+        <div
+          id="travelCarousel"
+          class="carousel slide container-lg"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=400&fit=crop"
+                class="d-block w-100"
+                alt="Beach"
+              />
+              <div
+                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3"
+              >
+                <h5>Beautiful Beach</h5>
+                <p>Experience the paradise beach</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop"
+                class="d-block w-100"
+                alt="Mountain"
+              />
+              <div
+                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3"
+              >
+                <h5>Mountain Adventure</h5>
+                <p>Climb the highest peaks</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=400&fit=crop"
+                class="d-block w-100"
+                alt="City"
+              />
+              <div
+                class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3"
+              >
+                <h5>Urban Exploration</h5>
+                <p>Discover city life</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#travelCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#travelCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 🔹 CARDS Section -->
+      <div class="container-lg cards-container">
+        <div class="card travel-card">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=250&fit=crop"
+            class="card-img-top"
+            alt="Beach"
+          />
+          <div class="card-body">
+            <div class="card-number"></div>
+            <h5 class="card-title">Beach Paradise</h5>
+            <p class="card-text">
+              The open sea, the salty breeze, the warm sun. We love travel as
+              much as you do. So let's plan your next trip together.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card travel-card">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop"
+            class="card-img-top"
+            alt="Mountain"
+          />
+          <div class="card-body">
+            <div class="card-number"></div>
+            <h5 class="card-title">Mountain Trek</h5>
+            <p class="card-text">
+              The open sea, the salty breeze, the warm sun. We love travel as
+              much as you do. So let's plan your next trip together.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Read More →</a>
+          </div>
+        </div>
+
+        <div class="card travel-card">
+          <img
+            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=250&fit=crop"
+            class="card-img-top"
+            alt="City"
+          />
+          <div class="card-body">
+            <div class="card-number"></div>
+            <h5 class="card-title">City Tour</h5>
+            <p class="card-text">
+              The open sea, the salty breeze, the warm sun. We love travel as
+              much as you do. So let's plan your next trip together.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- 🔹 MODAL - Bootstrap Component -->
+    <div class="modal fade" id="contactModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contact Us</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <div class="container">
+        <p class="mb-0">Thank you for visiting our website.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
